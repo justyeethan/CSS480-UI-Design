@@ -1,32 +1,14 @@
-import { type Metadata } from "next"
-import Link from "next/link"
-import { redirect } from "next/navigation"
-
-// import {
-//   Card,
-//   CardContent,
-//   CardDescription,
-//   CardFooter,
-//   CardHeader,
-//   CardTitle,
-// } from "@/components/ui/card"
-import { OAuthSignIn } from "@/components/auth/oauth-signin"
-import { SignInForm } from "@/components/forms/signin-form"
-// import { Shell } from "@/components/shells/shell"
-
-export const metadata: Metadata = {
-  metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
-  title: "Sign In",
-  description: "Sign in to your account",
-}
+import { title } from "@/components/primitives";
+import { type Metadata } from "next";
+import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default async function SignInPage() {
-  const user = await currentUser()
-  if (user) redirect("/")
-
   return (
-  <div>
-
-  </div>
-  )
+    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+      <div className="inline-block max-w-lg text-center">
+        <h1 className={title()}>Sign In</h1>
+      </div>
+    </section>
+  );
 }
