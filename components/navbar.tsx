@@ -101,7 +101,7 @@ export const Navbar = () => {
           <Button
             as={Link}
             className="text-sm mr-5 font-normal text-default-600 bg-default-100"
-            href={"/signin"}
+            href={"/checkout"}
             variant="flat"
             startContent={
               <CartIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />

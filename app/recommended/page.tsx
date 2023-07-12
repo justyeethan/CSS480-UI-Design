@@ -69,7 +69,7 @@ export default function RecommendedPage() {
     }
   }, [starSort, products]);
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+    <div className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="flex">
         <h1 className={title()}>Recommended&nbsp;</h1>
         <h1 className={title({ color: "blue" })}>For YOU&nbsp;</h1>
@@ -166,6 +166,6 @@ export default function RecommendedPage() {
           })
         }
       </div>
-    </section>
+    </div>
   );
 }
