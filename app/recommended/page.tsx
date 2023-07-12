@@ -92,7 +92,7 @@ export default function RecommendedPage() {
                   <DropdownMenu aria-label="Static Actions">
                     {categories.map((category) => {
                       return (
-                        <DropdownItem key={category}>{category}</DropdownItem>
+                        <DropdownItem onPress={() => {setCategory(category)}} key={category}>{category}</DropdownItem>
                       );
                     })}
                   </DropdownMenu>
