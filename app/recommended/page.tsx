@@ -149,6 +149,7 @@ export default function RecommendedPage() {
                   <Image
                     alt={product.title}
                     className="object-cover bg-gradient-to-r from-white-500 rounded-xl"
+                    isZoomed
                     src={product.image}
                     width={270}
                   />
