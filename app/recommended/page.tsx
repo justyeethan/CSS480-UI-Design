@@ -13,6 +13,7 @@ import {
   TableHeader,
   TableColumn,
   TableBody,
+	Pagination,
   TableRow,
   TableCell,
   Dropdown,
@@ -132,7 +133,7 @@ export default function RecommendedPage() {
           </TableBody>
         </Table>
       </div>
-      <div className="grid grid-flow-row grid-cols-3 grid-rows-3 text-center justify-center">
+      <div className="grid grid-flow-row grid-cols-3 text-center justify-center">
         {
           // loop through products
           products.map((product) => {
@@ -166,6 +167,7 @@ export default function RecommendedPage() {
           })
         }
       </div>
+      <Pagination total={10} initialPage={1} />
     </div>
   );
 }

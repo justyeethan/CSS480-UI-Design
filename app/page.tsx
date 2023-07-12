@@ -10,6 +10,7 @@ import { title, subtitle } from "@/components/primitives";
 import {
   Card,
   CardHeader,
+  Pagination,
   CardBody,
   CardFooter,
   Image,
@@ -48,7 +49,7 @@ export default function Home() {
         The next Generation of Online Shopping...{" "}
         <span className="font-extrabold text-lg italic">Reimagined.</span>
       </h1>
-      <div className="grid grid-flow-row grid-cols-3 grid-rows-3 text-center justify-center">
+      <div className="grid grid-flow-row grid-cols-3 text-center justify-center">
         {
           // loop through products
           products.map((product) => {
@@ -82,6 +83,7 @@ export default function Home() {
           })
         }
       </div>
+      <Pagination total={10} initialPage={1} />
     </section>
   );
 }
