@@ -7,8 +7,17 @@ import { Code } from "@nextui-org/code";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
-import { Card, CardHeader, CardBody, CardFooter, Image } from "@nextui-org/react";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Image,
+  Chip,
+} from "@nextui-org/react";
 import { useState, useEffect } from "react";
+
+import { StarIcon } from "@/components/icons";
 
 interface Product {
   id: number;
@@ -29,13 +38,16 @@ export default function Home() {
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=6")
       .then((res) => res.json())
-      .then(setProducts)
+      .then(setProducts);
   }, []);
   console.log(products);
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <h1 className={title({ color: "blue" })}>NAMAZON</h1>
-      <h1 className='italic text-base font-bold'>The next Generation of Online Shopping... <span className="font-extrabold text-lg italic">Reimagined.</span></h1>
+      <h1 className={title({ size: 'lg', color: "blue" })}>NAMAZON</h1>
+      <h1 className="italic text-base font-bold">
+        The next Generation of Online Shopping...{" "}
+        <span className="font-extrabold text-lg italic">Reimagined.</span>
+      </h1>
       <div className="grid grid-flow-row grid-cols-3 grid-rows-3 text-center justify-center">
         {
           // loop through products
@@ -57,7 +69,12 @@ export default function Home() {
                   />
                 </CardBody>
                 <CardFooter className="text-small justify-between">
-                  <b>{product.rating.rate}/5.0</b>
+                  <Chip variant="faded" color="warning" size="md">
+                    <div className="flex">
+                      <b className="mr-1"> {product.rating.rate}/5.0</b>
+                      <StarIcon size={20} />
+                    </div>
+                  </Chip>
                   <p className="text-default-500">${product.price} USD</p>
                 </CardFooter>
               </Card>

@@ -19,11 +19,7 @@ import NextLink from "next/link";
 import clsx from "clsx";
 
 import { ThemeSwitch } from "@/components/theme-switch";
-import {
-  UserIcon,
-	CartIcon,
-  SearchIcon,
-} from "@/components/icons";
+import { UserIcon, CartIcon, SearchIcon } from "@/components/icons";
 
 import { Logo } from "@/components/icons";
 
@@ -94,9 +90,9 @@ export const Navbar = () => {
             className="text-sm font-normal text-default-600 bg-default-100"
             href={"/signin"}
             variant="flat"
-						startContent={
-							<UserIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
-						}
+            startContent={
+              <UserIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
+            }
           >
             Sign In
           </Button>
@@ -107,9 +103,9 @@ export const Navbar = () => {
             className="text-sm mr-5 font-normal text-default-600 bg-default-100"
             href={"/signin"}
             variant="flat"
-						startContent={
-							<CartIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
-						}
+            startContent={
+              <CartIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
+            }
           >
             Cart
           </Button>
