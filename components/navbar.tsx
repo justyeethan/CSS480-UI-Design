@@ -44,7 +44,6 @@ export const Navbar = () => {
       type="search"
     />
   );
-
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">

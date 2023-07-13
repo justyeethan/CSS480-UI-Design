@@ -1,6 +1,7 @@
 import { AppProps } from "next/app";
 import { StarIcon } from "./icons";
 import { title } from "@/components/primitives";
+import { useKBar } from "kbar";
 import {
   Card,
   CardHeader,
@@ -33,6 +34,7 @@ interface Products {
 
 export default function Products({ products, isLoaded }: ProductsProps) {
   const router = useRouter();
+  const kbar = useKBar();
   if (!isLoaded) {
     return (
       <div className="grid grid-flow-row lg:grid-cols-3 sm:grid-cols-1 text-center justify-center">

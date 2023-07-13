@@ -20,8 +20,6 @@ import {
 import { useState, useEffect } from "react";
 import Products from "@/components/products";
 
-import { StarIcon } from "@/components/icons";
-
 interface Product {
   id: number;
   title: string;
