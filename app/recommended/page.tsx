@@ -23,7 +23,7 @@ import {
   Button,
 } from "@nextui-org/react";
 import { useState, useEffect } from "react";
-
+import Products from "@/components/products";
 interface Product {
   id: number;
   title: string;
@@ -43,11 +43,13 @@ export default function RecommendedPage() {
   const [categories, setCategories] = useState<string[]>([]);
   const [priceSort, setPriceSort] = useState<string>("asc");
   const [starSort, setStarSort] = useState<string>("asc");
+  const [isLoaded, setLoaded] = useState<boolean>(false);
   const stars = [5, 4, 3, 2, 1];
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/category/${category}?limit=6`)
       .then((res) => res.json())
-      .then(setProducts);
+      .then(setProducts)
+      .then(() => setLoaded(true));
   }, [category]);
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/categories")
@@ -133,41 +135,7 @@ export default function RecommendedPage() {
           </TableBody>
         </Table>
       </div>
-      <div className="grid grid-flow-row grid-cols-3 text-center justify-center">
-        {
-          // loop through products
-          products.map((product) => {
-            return (
-              <Card key={product.id} className="py-4 min-w-1/2 min-h-1/3 m-5">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <p className="text-tiny uppercase font-bold">
-                    {product.category}
-                  </p>
-                  <h4 className="font-bold text-large">{product.title}</h4>
-                </CardHeader>
-                <CardBody className="overflow-visible items-center justify-center py-2">
-                  <Image
-                    alt={product.title}
-                    className="object-cover bg-gradient-to-r from-white-500 rounded-xl"
-                    isZoomed
-                    src={product.image}
-                    width={270}
-                  />
-                </CardBody>
-                <CardFooter className="text-small justify-between">
-                  <Chip variant="faded" color="warning" size="md">
-                    <div className="flex">
-                      <b className="mr-1"> {product.rating.rate}/5.0</b>
-                      <StarIcon size={20} />
-                    </div>
-                  </Chip>
-                  <p className="text-default-500">${product.price} USD</p>
-                </CardFooter>
-              </Card>
-            );
-          })
-        }
-      </div>
+      <Products products={products} isLoaded={true} />
       <Pagination total={10} initialPage={1} />
     </div>
   );

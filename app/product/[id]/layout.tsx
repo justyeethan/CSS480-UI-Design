@@ -1,11 +1,11 @@
-export default function RecommendedLayout({
+export default function ProductInfoLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
 	return (
-		<div>
+		<section>
 				{children}
-		</div>
+		</section>
 	);
 }
